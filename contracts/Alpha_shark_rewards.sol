@@ -141,6 +141,7 @@ contract RewardSharks is Ownable, ReentrancyGuard, AccessControl {
         b1.boost_type = _boostType;
         b1.boostAmountPercentage = _boostPercentage;
         b1.expireTimeStamp = _expireTimeStamp;
+        
         listOfBoosters.push(b1);
         getBooster[_boostType] = b1;
     }
@@ -188,7 +189,7 @@ contract RewardSharks is Ownable, ReentrancyGuard, AccessControl {
             _boostCounter += getSharks[ownerTokenList[_address][i]].activeBoost.length;
         }
         
-        // Boosts
+        // Active Boosts
         Boosts[] memory _boosts = new Boosts[](_boostCounter);
         uint256 currentBoostCounter = 0;
         for(uint256 i=0; i<ownerTokenList[_address].length; i++){
